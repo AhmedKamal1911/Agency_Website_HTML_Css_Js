@@ -20,7 +20,6 @@ if (mainColor !== null) {
 // Check Background in Local Storage
 let randomBackgroundState = window.localStorage.getItem("background_option");
 if (randomBackgroundState !== null) {
-  console.log(randomBackgroundState);
   if (randomBackgroundState == "true") {
     backgroundOption = true;
     randomizeImgs();
@@ -39,7 +38,6 @@ if (randomBackgroundState !== null) {
   }
 }
 
-// console.log(JSON.parse(randomBackgroundState));
 // onclick on cogs event
 let cogs = document.querySelector(".settings .fa-gear");
 let settings = document.querySelector(".settings");
@@ -58,7 +56,7 @@ function randomizeImgs() {
     countToChange = setInterval(() => {
       // get random element from the array
       let random = images[Math.floor(Math.random() * images.length)];
-      landingPage.style.backgroundImage = `url('imgs/${random}')`;
+      landingPage.style.backgroundImage = `url('../imgs/${random}')`;
     }, 5000);
   }
 }
