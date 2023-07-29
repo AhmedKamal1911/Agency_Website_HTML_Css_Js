@@ -51,12 +51,16 @@ let landingPage = document.querySelector(".landing-page");
 
 let images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 // change background image url
+landingPage.style.setProperty("background-image", `url(../imgs/${images[0]})`);
 function randomizeImgs() {
   if (backgroundOption === true) {
     countToChange = setInterval(() => {
       // get random element from the array
       let random = images[Math.floor(Math.random() * images.length)];
-      landingPage.style.backgroundImage = `url('../imgs/${random}')`;
+      landingPage.style.setProperty(
+        "background-image",
+        `url(../imgs/${random})`
+      );
     }, 5000);
   }
 }
