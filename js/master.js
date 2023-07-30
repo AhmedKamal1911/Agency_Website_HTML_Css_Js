@@ -51,16 +51,13 @@ let landingPage = document.querySelector(".landing-page");
 
 let images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 // change background image url
-landingPage.style.setProperty("background-image", `url(../imgs/${images[0]})`);
+
 function randomizeImgs() {
   if (backgroundOption === true) {
     countToChange = setInterval(() => {
       // get random element from the array
       let random = images[Math.floor(Math.random() * images.length)];
-      landingPage.style.setProperty(
-        "background-image",
-        `url(../imgs/${random})`
-      );
+      landingPage.style.backgroundImage = `url(imgs/${random})`; // this script is running in index.html page any url you set will be relative to the index.html page (the page which the script runs onto it)
     }, 5000);
   }
 }
@@ -119,4 +116,6 @@ barsIcon.addEventListener("click", (e) => {
 });
 exitBtn.addEventListener("click", (e) => {
   headerLinks.style.cssText = "top: -300%; ; opacity : 0";
+  // Remove this line of code 120 + remove pages folder
+  // location.assign("pages/test.html"); // i don't need to say ./pages/test.html because im changing the url only
 });

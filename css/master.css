@@ -131,7 +131,7 @@ body {
 /* End Settings */
 .landing-page {
   min-height: 100vh;
-  /* background-image: url("../imgs/01.jpg"); */
+  background-image: url("../imgs/01.jpg");
   background-size: cover;
   position: relative;
 }
@@ -180,7 +180,6 @@ header .logo {
     text-align: right;
     padding-left: 0px;
     padding-right: 20px;
-    transition: 0.3s;
     opacity: 1 !important;
   }
 }
@@ -198,6 +197,7 @@ header .logo {
     top: -300%;
     left: 0;
     width: 100%;
+    transition: 0.3s;
   }
   header .links li {
     margin: 0px;
