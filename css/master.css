@@ -5,6 +5,33 @@ body {
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
 }
+.container {
+  /* width: 1170px; */
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+/* small-screens */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Meduium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 /* Start Landing Page */
 /* Start Settings */
 .settings {
@@ -23,7 +50,7 @@ body {
 }
 .settings .cogs-container {
   position: absolute;
-  right: -35px;
+  right: -36px;
   top: 40%;
   background-color: white;
   font-size: 20px;
@@ -96,7 +123,7 @@ body {
   background-color: #a72828e5;
 }
 .colors-list li:nth-child(6) {
-  background-color: #a72828e5;
+  background-color: #79c91de5;
 }
 
 .background-option h4 {
@@ -273,3 +300,186 @@ header i {
 }
 
 /* End Landing Page */
+/* Start About Us  */
+.about-us {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  .about-us {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+.about-us .info-box {
+  flex: 1;
+}
+.about-us .info-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+}
+.about-us .info-box p {
+  line-height: 1.8;
+  color: #6a6767;
+}
+.about-us .img-box {
+  flex: 1;
+}
+.about-us .img-box img {
+  align-self: flex-end;
+  width: 500px;
+  animation: to-up 2s forwards alternate linear infinite;
+}
+@media (max-width: 992px) {
+  .about-us .img-box img {
+    max-width: 100%;
+  }
+}
+@keyframes to-up {
+  0%,
+  100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, 10px);
+  }
+}
+/* End About Us  */
+/* Start skills */
+.skills {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #f4f4f4;
+}
+.skills h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  text-align: center;
+}
+.skills .skill-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  gap: 20px;
+}
+.skills .skill-box:not(:last-child) {
+  margin-bottom: 30px;
+}
+.skills .skill-box .skill-name {
+  font-weight: bold;
+  text-align: right;
+}
+.skills .skill-box .skill-progress {
+  height: 35px;
+  background-color: rgb(248, 244, 244);
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+.skills .skill-box .skill-progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  transition: 1s;
+}
+.skills .skill-box:nth-child(2) .skill-progress span {
+  background-color: darkblue;
+}
+.skills .skill-box:nth-child(3) .skill-progress span {
+  background-color: rgb(7, 160, 99);
+}
+.skills .skill-box:nth-child(4) .skill-progress span {
+  background-color: rgb(250, 37, 17);
+}
+.skills .skill-box:nth-child(5) .skill-progress span {
+  background-color: rgb(199, 12, 161);
+}
+/* End skills */
+/* Start Gallary */
+.gallary {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.gallary h2 {
+  text-align: center;
+  color: var(--main-color);
+  margin-bottom: 40px;
+}
+.gallary .images-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 40px;
+  transform: scale(0);
+  transition: 1s;
+}
+.gallary .images-box img {
+  max-width: 100%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.gallary .images-box img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+.pop-up-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.685);
+  z-index: 10;
+}
+.img-pop-up {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+  z-index: 11;
+  padding: 15px;
+  text-align: center;
+}
+@media (max-width: 996px) {
+  .img-pop-up {
+    width: 80%;
+  }
+}
+.img-pop-up h2 {
+  color: var(--main-color);
+  text-transform: capitalize;
+}
+.img-pop-up img {
+  width: 100%;
+  border-radius: 5px;
+}
+.img-pop-up .close-btn {
+  font-weight: bold;
+  position: absolute;
+  color: white;
+  background-color: var(--main-color);
+  top: -20px;
+  right: -12px;
+  font-size: 28px;
+  font-style: normal;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+/* End Gallary */
