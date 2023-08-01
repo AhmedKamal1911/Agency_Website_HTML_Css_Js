@@ -45,6 +45,13 @@ cogs.addEventListener("click", function () {
   this.classList.toggle("fa-spin");
   settings.classList.toggle("open");
 });
+document.addEventListener("click", (e) => {
+  // console.log("e.target", e.target);
+  // console.log(settings, "contains", "?", e.target, settings.contains(e.target));
+  if (!settings.contains(e.target) && settings.matches(".open")) {
+    cogs.click();
+  }
+});
 // changing background image
 
 let landingPage = document.querySelector(".landing-page");
@@ -115,7 +122,7 @@ barsIcon.addEventListener("click", (e) => {
   headerLinks.style.cssText = "top : 110%; opacity: 1;";
 });
 exitBtn.addEventListener("click", (e) => {
-  headerLinks.style.cssText = "top: -300%; ; opacity : 0";
+  headerLinks.style.cssText = "top: -800%; ; opacity : 0";
   // Remove this line of code 120 + remove pages folder
   // location.assign("pages/test.html"); // i don't need to say ./pages/test.html because im changing the url only
 });
@@ -146,7 +153,7 @@ window.onscroll = function () {
 
   let imagesBox = document.querySelector(".images-box");
 
-  // Skills Offset Top
+  // Imgs Offset Top
   let imgsOffsetTop = imagesBox.offsetTop;
 
   // OuterHeight
@@ -199,3 +206,50 @@ allImages.forEach((img) => {
     });
   });
 });
+// NavBullets Counter
+let navBullets = document.querySelector(".nav-bullets");
+let allHeaderLinks = document.querySelectorAll(".links a");
+// Create Section bullets
+for (let i = 0; i < allHeaderLinks.length; i++) {
+  // Create Bullet Div
+  let bullet = document.createElement("div");
+  bullet.classList.add("bullet");
+  // console.log(allHeaderLinks[i].getAttribute("data-section"));
+  // Add Data-Section Attr
+  bullet.setAttribute(
+    "data-section",
+    allHeaderLinks[i].getAttribute("data-section")
+  );
+  //Create ToolTip
+  let toolTip = document.createElement("div");
+  toolTip.classList.add("tool-tip");
+  toolTip.innerHTML = allHeaderLinks[i].textContent;
+  bullet.appendChild(toolTip);
+  // Append All to Nav Bullets
+  navBullets.appendChild(bullet);
+}
+
+let allBullets = document.querySelectorAll(".bullet");
+// allBullets.forEach((bullet) => {
+//   bullet.addEventListener("click", (e) => {
+//     document.querySelector(e.target.dataset.sectionTarget).scrollIntoView({
+//       behavior: "smooth",
+//     });
+//   });
+// });
+
+// Scroll To Section Function
+function scrollToSection(elements) {
+  elements.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+scrollToSection(allBullets);
+scrollToSection(allHeaderLinks);
